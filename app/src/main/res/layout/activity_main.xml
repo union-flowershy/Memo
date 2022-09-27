@@ -20,7 +20,7 @@
 
     <EditText
         android:id="@+id/edittext_memo"
-        android:layout_width="280dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginBottom="12dp"
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toEndOf="@+id/edittext_memo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-ss
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -51,6 +51,5 @@ ss
         tools:layout_editor_absoluteX="16dp"
         android:layout_margin="20dp"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
