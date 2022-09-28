@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Memo List"
+        android:text="@string/AddMemo"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,16 +24,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginBottom="12dp"
-        android:hint="Add Memo..."
+        android:hint="@string/AddMemo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck"
+        android:inputType="numberDecimal"
+        android:autofillHints="no" />
 
     <Button
-        android:id="@+id/button_btn"
+        android:id="@+id/button_add"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Add"
+        android:text="@string/add"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:layout_marginBottom="12dp"
