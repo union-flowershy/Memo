@@ -2,6 +2,7 @@
     <string name="app_name">Note+</string>
     <string name="app_list1">기말고사 공부하기</string>
     <string name="add">Add</string>
-    <string name="AddMemo">Add Memo…</string>
+    <string name="AddMemo"><u>UNION NOTE</u></string>
+    <string name="hint">Add Memo…</string>
     <string name="MemoList">Memo List</string>
 </resources>
