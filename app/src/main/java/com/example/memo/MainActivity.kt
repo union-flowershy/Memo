@@ -1,5 +1,4 @@
 //package com.example.memo
-////import android.os.AsyncTask
 //
 //import android.annotation.SuppressLint
 //import android.os.AsyncTask
@@ -9,7 +8,7 @@
 //import kotlinx.android.synthetic.main.activity_main.*
 //
 //@SuppressLint("StaticFieldLeak")
-//class MainActivity : AppCompatActivity() {
+//class MainActivity : AppCompatActivity(), OnDeleteListener {
 //
 //    lateinit var db  : MemoDatabase //바로 초기화 하지 않을 경우 lateinit 이용
 //    var memoList = listOf<MemoEntity>()
@@ -25,9 +24,24 @@
 //        button_add.setOnClickListener {
 //            val memo = MemoEntity(null, edittext_memo.text.toString())
 //            insertMemo(memo)
+//            edittext_memo.setText(null) // 입력 완료후 null값으로 변경하여 입력된 내용 초기화
 //        }
 //
+////        button_add.setOnEditorActionListener{ textView, action, event ->
+////            var handled = false
+////
+////            if (action == EditorInfo.IME_ACTION_DONE) {
+////                // 키보드 내리기
+////                val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+////                inputMethodManager.hideSoftInputFromWindow(root.windowToken, 0)
+////                handled = true
+////            }
+////            handled
+////        }
+//
 //        recyclerView.layoutManager = LinearLayoutManager(this)
+//
+//        getAllMemo()    // 첫 로딩시 전부 불러오기
 //
 //    }
 //
@@ -75,14 +89,28 @@
 //        }).execute()
 //    }
 //
-//    fun deleteMemo() {
+//    fun deleteMemo(memo : MemoEntity) {
+//        val deleteTask = object : AsyncTask<Unit, Unit, Unit>() {
+//            override fun doInBackground(vararg params: Unit?) {
+//                db.memoDAO().delete(memo)
+//            }
 //
+//            override fun onPostExecute(result: Unit?) {
+//                super.onPostExecute(result)
+//                getAllMemo()
+//            }
+//        }
+//        deleteTask.execute()
 //    }
 //
 //    fun setRecyclerView(memoList: List<MemoEntity>) {
 //
-//        recyclerView.adapter = MyAdapter(this, memoList)
+//        recyclerView.adapter = MyAdapter(this, memoList, this)
 //
+//    }
+//
+//    override fun onDeleteListener(memo: MemoEntity) {
+//        deleteMemo(memo)
 //    }
 //
 //}
