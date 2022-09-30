@@ -4,18 +4,29 @@ import android.annotation.SuppressLint
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.View.OnLongClickListener
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 
 @SuppressLint("StaticFieldLeak")
 class MainActivity : AppCompatActivity(), OnDeleteListener {
 
+    val TAG = "MainActivity"
+    lateinit var mAdView : AdView
     lateinit var db  : MemoDatabase //바로 초기화 하지 않을 경우 lateinit 이용
     var memoList = listOf<MemoEntity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        // 1. 모바일 광고 초기화
+        MobileAds.initialize(this) {}
+
+        // 2. 광고 띄우기
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
